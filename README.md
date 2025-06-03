@@ -23,6 +23,99 @@ WCAG (Web Content Accessibility Guidelines) are organized around 4 main principl
 | **4. ROBUST** | | | | |
 | | **4.1 Compatible** | Content works with assistive technologies | Valid HTML code, proper ARIA labels, works with screen readers | `<button aria-expanded="false" aria-controls="menu" onclick="toggleMenu()">Menu</button>` <br> `<ul id="menu" hidden>...</ul>` <br><br> `<div role="alert" aria-live="polite">Form saved successfully</div>` |
 
+## Complete ARIA Attributes Reference
+
+ARIA (Accessible Rich Internet Applications) attributes provide semantic information to assistive technologies. ARIA is a set of roles and attributes that define ways to make web content and web applications more accessible to people with disabilities. Here's a comprehensive list organized by category:
+
+### Widget Attributes
+These attributes describe the state and properties of UI widgets:
+
+| Attribute | Purpose | Example Usage | Values |
+|-----------|---------|---------------|--------|
+| `aria-autocomplete` | Indicates if text input triggers predictions | `<input aria-autocomplete="list">` | `none`, `inline`, `list`, `both` |
+| `aria-checked` | Current checked state of checkboxes/radio buttons | `<input type="checkbox" aria-checked="true">` | `true`, `false`, `mixed` |
+| `aria-disabled` | Indicates element is perceivable but not operable | `<button aria-disabled="true">Save</button>` | `true`, `false` |
+| `aria-errormessage` | References element containing error message | `<input aria-errormessage="pwd-error">` | ID reference |
+| `aria-expanded` | Whether collapsible element is expanded | `<button aria-expanded="false">Menu</button>` | `true`, `false` |
+| `aria-haspopup` | Indicates element can trigger popup | `<button aria-haspopup="menu">Options</button>` | `false`, `true`, `menu`, `listbox`, `tree`, `grid`, `dialog` |
+| `aria-hidden` | Whether element is exposed to accessibility API | `<span aria-hidden="true">👍</span>` | `true`, `false` |
+| `aria-invalid` | Whether input value is valid | `<input aria-invalid="true">` | `false`, `true`, `grammar`, `spelling` |
+| `aria-label` | Accessible name for element | `<button aria-label="Close dialog">×</button>` | String |
+| `aria-level` | Hierarchical level of element | `<div role="heading" aria-level="3">` | Positive integer |
+| `aria-modal` | Whether element is modal when displayed | `<div role="dialog" aria-modal="true">` | `true`, `false` |
+| `aria-multiline` | Whether textbox accepts multiple lines | `<div role="textbox" aria-multiline="true">` | `true`, `false` |
+| `aria-multiselectable` | Whether multiple items can be selected | `<ul role="listbox" aria-multiselectable="true">` | `true`, `false` |
+| `aria-orientation` | Element's orientation | `<div role="slider" aria-orientation="vertical">` | `horizontal`, `vertical` |
+| `aria-placeholder` | Short hint for expected input | `<input aria-placeholder="Enter your name">` | String |
+| `aria-pressed` | Pressed state of toggle button | `<button aria-pressed="false">Bold</button>` | `true`, `false`, `mixed` |
+| `aria-readonly` | Whether element is editable | `<input aria-readonly="true">` | `true`, `false` |
+| `aria-required` | Whether input is required | `<input aria-required="true">` | `true`, `false` |
+| `aria-selected` | Whether option is selected | `<li role="option" aria-selected="true">` | `true`, `false` |
+| `aria-sort` | Sort direction of table column | `<th aria-sort="ascending">Name</th>` | `none`, `ascending`, `descending`, `other` |
+| `aria-valuemax` | Maximum value for range | `<input type="range" aria-valuemax="100">` | Number |
+| `aria-valuemin` | Minimum value for range | `<input type="range" aria-valuemin="0">` | Number |
+| `aria-valuenow` | Current value for range | `<input type="range" aria-valuenow="50">` | Number |
+| `aria-valuetext` | Human-readable value text | `<div role="slider" aria-valuetext="50%">` | String |
+
+### Live Region Attributes
+These attributes are used with ARIA live regions to announce dynamic content changes:
+
+| Attribute | Purpose | Example Usage | Values |
+|-----------|---------|---------------|--------|
+| `aria-atomic` | Whether entire region should be announced | `<div aria-live="polite" aria-atomic="true">` | `true`, `false` |
+| `aria-busy` | Whether element is being updated | `<div aria-busy="true">Loading...</div>` | `true`, `false` |
+| `aria-live` | How live region updates are announced | `<div aria-live="assertive">Error occurred</div>` | `off`, `polite`, `assertive` |
+| `aria-relevant` | What changes trigger announcements | `<div aria-live="polite" aria-relevant="additions text">` | `additions`, `removals`, `text`, `all` |
+
+### Relationship Attributes
+These attributes describe relationships between elements:
+
+| Attribute | Purpose | Example Usage | Values |
+|-----------|---------|---------------|--------|
+| `aria-activedescendant` | Currently active descendant | `<div role="combobox" aria-activedescendant="option-2">` | ID reference |
+| `aria-colcount` | Total number of columns | `<table aria-colcount="5">` | Positive integer |
+| `aria-colindex` | Column index position | `<td aria-colindex="3">` | Positive integer |
+| `aria-colindextext` | Human-readable column index | `<td aria-colindextext="Column C">` | String |
+| `aria-colspan` | Number of columns spanned | `<td aria-colspan="2">` | Positive integer |
+| `aria-controls` | Elements controlled by this element | `<button aria-controls="menu-list">Menu</button>` | Space-separated ID list |
+| `aria-describedby` | Elements that describe this element | `<input aria-describedby="pwd-help">` | Space-separated ID list |
+| `aria-description` | Description of the element | `<button aria-description="Saves your changes">Save</button>` | String |
+| `aria-details` | Elements providing detailed information | `<img aria-details="chart-details">` | Space-separated ID list |
+| `aria-flowto` | Next element in reading order | `<div aria-flowto="next-section">` | Space-separated ID list |
+| `aria-labelledby` | Elements that label this element | `<input aria-labelledby="billing-header">` | Space-separated ID list |
+| `aria-owns` | Child elements not in DOM hierarchy | `<div aria-owns="submenu">` | Space-separated ID list |
+| `aria-posinset` | Position in set | `<li role="treeitem" aria-posinset="3">` | Positive integer |
+| `aria-rowcount` | Total number of rows | `<table aria-rowcount="100">` | Positive integer |
+| `aria-rowindex` | Row index position | `<tr aria-rowindex="5">` | Positive integer |
+| `aria-rowindextext` | Human-readable row index | `<tr aria-rowindextext="Row 5 of 100">` | String |
+| `aria-rowspan` | Number of rows spanned | `<td aria-rowspan="3">` | Positive integer |
+| `aria-setsize` | Number of items in set | `<li role="treeitem" aria-setsize="10">` | Positive integer |
+
+### Drag-and-Drop Attributes
+These attributes are used for drag and drop operations:
+
+| Attribute | Purpose | Example Usage | Values |
+|-----------|---------|---------------|--------|
+| `aria-dropeffect` | Functions performed when dropped | `<div aria-dropeffect="copy">Drop Zone</div>` | `none`, `copy`, `execute`, `link`, `move`, `popup` |
+| `aria-grabbed` | Grabbed state in drag operation | `<div aria-grabbed="true">Draggable Item</div>` | `true`, `false` |
+
+### Global ARIA Attributes
+Many ARIA attributes are global, meaning they can be included on any element unless specifically disallowed. Most commonly used global attributes include:
+
+| Attribute | Purpose | Example Usage |
+|-----------|---------|---------------|
+| `aria-current` | Current item in set | `<a href="/about" aria-current="page">About</a>` |
+| `aria-keyshortcuts` | Keyboard shortcuts | `<button aria-keyshortcuts="Control+s">Save</button>` |
+| `aria-roledescription` | Human-readable role description | `<div role="img" aria-roledescription="Temperature gauge">` |
+
+### Braille-Specific Attributes
+These newer attributes are designed for Braille display users:
+
+| Attribute | Purpose | Example Usage |
+|-----------|---------|---------------|
+| `aria-braillelabel` | Braille-specific label | `<button aria-braillelabel="sv">Save</button>` |
+| `aria-brailleroledescription` | Braille-specific role description | `<div aria-brailleroledescription="temp">` |
+
 ## Conformance Levels
 
 | Level | Description | When to Use |
@@ -85,6 +178,54 @@ WCAG (Web Content Accessibility Guidelines) are organized around 4 main principl
 </div>
 ```
 
+### Live Regions for Dynamic Content
+```html
+<!-- Status messages -->
+<div id="status" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Error alerts -->
+<div role="alert" aria-live="assertive">
+  Error: Please fill in all required fields
+</div>
+
+<!-- Loading states -->
+<div aria-live="polite" aria-busy="true">
+  Loading your data...
+</div>
+```
+
+### Complex Widgets
+```html
+<!-- Accessible data table -->
+<table role="table" aria-label="Sales Data" aria-rowcount="1000">
+  <thead>
+    <tr role="row">
+      <th role="columnheader" aria-sort="ascending">Product</th>
+      <th role="columnheader" aria-sort="none">Sales</th>
+      <th role="columnheader" aria-sort="none">Region</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr role="row" aria-rowindex="2">
+      <td role="gridcell" aria-describedby="product-help">Widget A</td>
+      <td role="gridcell">$1,250</td>
+      <td role="gridcell">North</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Accessible slider -->
+<div role="slider" 
+     aria-valuemin="0" 
+     aria-valuemax="100" 
+     aria-valuenow="25"
+     aria-valuetext="25%"
+     aria-label="Volume"
+     tabindex="0">
+  <div class="slider-thumb"></div>
+</div>
+```
+
 ### Focus Management
 ```css
 /* Visible focus indicators */
@@ -127,4 +268,24 @@ function announceLiveRegion(message) {
   const liveRegion = document.getElementById('live-region');
   liveRegion.textContent = message;
 }
+
+// Update ARIA attributes dynamically
+function toggleMenu() {
+  const button = document.querySelector('[aria-controls="menu"]');
+  const menu = document.getElementById('menu');
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  
+  button.setAttribute('aria-expanded', !isExpanded);
+  menu.hidden = isExpanded;
+}
 ```
+
+## Best Practices for ARIA Usage
+
+1. **Use semantic HTML first** - Only use ARIA when native HTML doesn't provide the semantics you need
+2. **Don't change semantics** - Avoid using ARIA to change what an element fundamentally is
+3. **Ensure keyboard accessibility** - All interactive ARIA elements must be keyboard accessible
+4. **Provide labels** - Interactive elements need accessible names via `aria-label` or `aria-labelledby`
+5. **Test with screen readers** - The best way to verify ARIA implementation is testing with actual assistive technology
+6. **Keep it simple** - Use the minimum ARIA necessary to convey meaning
+7. **Update states dynamically** - Change ARIA states (like `aria-expanded`) as the UI changes
